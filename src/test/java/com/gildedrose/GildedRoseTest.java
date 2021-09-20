@@ -95,7 +95,7 @@ class GildedRoseTest {
     assertThat(element.quality, is(80));
   }
 
-  // There isn't code defining the maximum for Sulfura's quality but the text says 80, this cannot be verified
+  // There isn't any code defining the maximum for Sulfura's quality but the text says 80, this cannot be verified
   @Test 
   @DisplayName("Test of Sulfura's quality max")
   void testSulfuraQualityMax() {

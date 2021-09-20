@@ -15,7 +15,27 @@ repositories {
 
 test {
   useJUnitPlatform()
+  finalizedBy jacocoTestReport
 }
+
+
+
+jacoco {
+    toolVersion = "0.8.7"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
+
+
+jacocoTestReport {
+  dependsOn test
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+
 
 dependencies {
     testImplementation 'org.hamcrest:hamcrest:2.2'
