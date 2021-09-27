@@ -16,7 +16,7 @@ class GildedRoseTest {
   }
 
 
-  // Test for the Brie
+  // Tests for the Brie
 
   @Test 
   @DisplayName("Test of the Brie quality update per day")
@@ -37,7 +37,7 @@ class GildedRoseTest {
   }
 
 
-  //Test for the concert
+  //Tests for the concert
 
   @Test 
   @DisplayName("Test of the concert quality per day > 10")
@@ -84,7 +84,7 @@ class GildedRoseTest {
     assertThat(element.quality, is(50));
   }
 
-  // Test for Sulfura
+  // Tests for Sulfura
 
   @Test 
   @DisplayName("Test of Sulfura's quality per day")

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gildedrose.GildedRoseTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-09-20T08:57:11" hostname="turing.local.isima.fr" time="0.024">
+<testsuite name="com.gildedrose.GildedRoseTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-09-27T08:56:06" hostname="turing.local.isima.fr" time="0.027">
   <properties/>
-  <testcase name="Test of the concert quality per day &lt; 10 but &gt; 5" classname="com.gildedrose.GildedRoseTest" time="0.016"/>
+  <testcase name="Test of the concert quality per day &lt; 10 but &gt; 5" classname="com.gildedrose.GildedRoseTest" time="0.018"/>
   <testcase name="Test that the name is unchanged" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="Test of the Max Brie quality (50)" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
-  <testcase name="Test of a random item's quality per day" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="Test of the max concert quality (50)" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
+  <testcase name="Test of a random item's quality per day" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="Test of the max concert quality (50)" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="Test of the Brie quality update per day" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="Test of Sulfura's quality max" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
-  <testcase name="Test of the concert quality when the concert's done" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="Test of the concert quality when the concert's done" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
   <testcase name="Test of Sulfura's quality per day" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="Test of the concert quality per day &lt; 5" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="Test of the concert quality per day &gt; 10" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
