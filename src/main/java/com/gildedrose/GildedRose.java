@@ -6,17 +6,31 @@ class GildedRose {
     public GildedRose(Item[] items) {
         this.items = items;
     }
-/*
     
     public void updateBrie(Item item){
 
-        item.quality = item.quality + 1;
+        if (item.sellIn == 0){
+            if( item.quality <= 48){
+                item.quality = item.quality + 2;
+            } else{
+                item.quality = 50;
+            } 
+        } else if (item.quality <=49){
+
+            item.quality = item.quality + 1;
+            item.sellIn = item.sellIn - 1;
+
+        } 
 
     }
 
     public void updateConcert(Item item){
 
-        item.quality = item.quality + 1;
+        if (item.quality < 50){
+
+            item.quality = item.quality + 1;
+
+        } 
 
         if (item.sellIn < 10 && item.quality < 50){
 
@@ -33,40 +47,51 @@ class GildedRose {
                 }
 
             }
-
-        } else if (item.sellIn < 1){
-
-            item.quality = 0;
-
-        }
+        } 
 
     }  
 
     public void updateRegular(Item item){
 
-        item.quality = item.quality - 1;
+        if (item.sellIn == 0 && item.quality >= 2){
+
+            item.quality = item.quality - 2;
+
+        } else if (item.quality >= 1){
+
+            item.quality = item.quality - 1;
+            item.sellIn = item.sellIn - 1;
+            
+        } 
 
     }
 
     public void updateConjured(Item item){
 
-        item.quality = item.quality - 2;
+        if (item.sellIn == 0 && item.quality >= 4){
+
+            item.quality = item.quality - 4;
+
+        } else if(item.quality >=2){
+
+            item.quality = item.quality - 2;
+            item.sellIn = item.sellIn - 1;
+            
+        } 
 
     } 
 
     
 
-*/
+
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
 
             //Test
-            /*
+            
             if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")){
                 
-                if (items[i].quality < 50 && items[i].sellIn >= 0){
-
-                    items[i].sellIn = items[i].sellIn - 1;
+                if (items[i].quality <= 50){
 
                     if (items[i].name.equals("Aged Brie")){
                         updateBrie(items[i]);
@@ -80,7 +105,7 @@ class GildedRose {
                     
                 }
             } 
-            */
+            /*
             
 
             
@@ -133,7 +158,7 @@ class GildedRose {
                     }
                 }
             }
-            
+           */ 
 
         }
     }
