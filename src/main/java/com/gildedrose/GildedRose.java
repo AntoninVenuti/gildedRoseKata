@@ -6,7 +6,7 @@ class GildedRose {
     public GildedRose(Item[] items) {
         this.items = items;
     }
-
+/*
     
     public void updateBrie(Item item){
 
@@ -56,12 +56,12 @@ class GildedRose {
 
     
 
-
+*/
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
 
             //Test
-            
+            /*
             if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")){
                 
                 if (items[i].quality < 50 && items[i].sellIn >= 0){
@@ -80,10 +80,10 @@ class GildedRose {
                     
                 }
             } 
-            
+            */
             
 
-            /*
+            
 
             if (!items[i].name.equals("Aged Brie")
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
@@ -133,7 +133,8 @@ class GildedRose {
                     }
                 }
             }
-            */
+            
+
         }
     }
 }

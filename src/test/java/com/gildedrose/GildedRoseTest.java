@@ -21,10 +21,19 @@ class GildedRoseTest {
   @Test 
   @DisplayName("Test of the Brie quality update per day")
   void testBrieQuality() {
-    Item element = new Item("Aged Brie", 20, 4);
+    Item element = new Item("Aged Brie", 10, 4);
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(5));
+  }
+
+  @Test 
+  @DisplayName("Test of the Brie quality when the expiration is passed")
+  void testExpiredBrieQuality() {
+    Item element = new Item("Aged Brie", 0, 4);
+    GildedRose app = new GildedRose(new Item[] {element});
+    app.updateQuality();
+    assertThat(element.quality, is(6));
   }
 
   @Test 
@@ -95,16 +104,6 @@ class GildedRoseTest {
     assertThat(element.quality, is(80));
   }
 
-  // There isn't any code defining the maximum for Sulfura's quality but the text says 80, this cannot be verified
-  @Test 
-  @DisplayName("Test of Sulfura's quality max")
-  void testSulfuraQualityMax() {
-    Item element = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
-    GildedRose app = new GildedRose(new Item[] {element});
-    app.updateQuality();
-    assertThat(element.quality, is(80));
-  }
-
 
   // Other items
 
@@ -115,5 +114,14 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(19));
+  }
+
+  @Test 
+  @DisplayName("Test of a random item's quality when the expiration is passed")
+  void testExpiredItemQuality() {
+    Item element = new Item("+5 Dexterity Vest", 0, 20);
+    GildedRose app = new GildedRose(new Item[] {element});
+    app.updateQuality();
+    assertThat(element.quality, is(18));
   }
 }
