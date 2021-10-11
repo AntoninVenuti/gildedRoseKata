@@ -25,6 +25,7 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(5));
+    assertThat(element.sellIn, is(9));
   }
 
   @Test 
@@ -34,15 +35,27 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(6));
+    assertThat(element.sellIn, is(0));
   }
 
   @Test 
-  @DisplayName("Test of the Max Brie quality (50)")
+  @DisplayName("Test of the Brie quality when expired and qualtity > 48")
+  void testMaxExpiredBrieQuality() {
+    Item element = new Item("Aged Brie", 0, 49);
+    GildedRose app = new GildedRose(new Item[] {element});
+    app.updateQuality();
+    assertThat(element.quality, is(50));
+    assertThat(element.sellIn, is(0));
+  }
+
+  @Test 
+  @DisplayName("Test of the Max Brie quality")
   void testBrieQualityMax() {
     Item element = new Item("Aged Brie", 10, 50);
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(50));
+    //assertThat(element.sellIn, is(9));
   }
 
 
@@ -55,6 +68,7 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(6));
+    assertThat(element.sellIn, is(10));
   }
 
   @Test 
@@ -64,6 +78,7 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(7));
+    assertThat(element.sellIn, is(8));
   }
 
   @Test 
@@ -73,6 +88,7 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(8));
+    assertThat(element.sellIn, is(3));
   }
 
   @Test 
@@ -82,6 +98,7 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(0));
+    assertThat(element.sellIn, is(0));
   }
 
   @Test 
@@ -91,6 +108,7 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(50));
+    assertThat(element.sellIn, is(19));
   }
 
   // Tests for Sulfura
@@ -102,6 +120,7 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(80));
+    assertThat(element.sellIn, is(0));
   }
 
 
@@ -114,6 +133,7 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(19));
+    assertThat(element.sellIn, is(9));
   }
 
   @Test 
@@ -123,5 +143,6 @@ class GildedRoseTest {
     GildedRose app = new GildedRose(new Item[] {element});
     app.updateQuality();
     assertThat(element.quality, is(18));
+    assertThat(element.sellIn, is(0));
   }
 }
