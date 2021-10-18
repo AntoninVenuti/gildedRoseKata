@@ -15,6 +15,7 @@ class GildedRose {
     public void changeQualityPerDay(Item item, int n){
 
         item.quality = item.quality + n;
+        
     } 
 
     public void removeSellInPerDay(Item item){
