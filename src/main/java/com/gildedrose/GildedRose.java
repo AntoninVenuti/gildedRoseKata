@@ -5,18 +5,17 @@ class GildedRose {
 
 
     final int MAXQUALITY = 50;
+    final int MINQUALITY = 0;
 
 
     public GildedRose(Item[] items) {
         this.items = items;
     }
     
-  
-    public void addQualityPerDay(Item item){
+    public void changeQualityPerDay(Item item, int n){
 
-        item.quality = item.quality + 1;
-
-    }  
+        item.quality = item.quality + n;
+    } 
 
     public void removeSellInPerDay(Item item){
 
@@ -29,9 +28,9 @@ class GildedRose {
 
         if (item.sellIn == 0){
 
-            if(item.quality <= 48){
+            if(item.quality <= MAXQUALITY - 2){
 
-                item.quality = item.quality + 2;
+                changeQualityPerDay(item, 2);
 
             } else {
 
@@ -40,11 +39,11 @@ class GildedRose {
             } 
         } 
         
-        else if (item.quality <= 50){
+        else if (item.quality <= MAXQUALITY){
 
-            if (item.quality <= 49){
+            if (item.quality <= MAXQUALITY - 1){
 
-                addQualityPerDay(item);
+                changeQualityPerDay(item, 1);
 
             }
 
@@ -58,21 +57,21 @@ class GildedRose {
 
         if (item.quality < MAXQUALITY){
 
-            addQualityPerDay(item);
+            changeQualityPerDay(item, 1);
 
         } 
 
         if (item.sellIn < 10 && item.quality < MAXQUALITY){
 
-            addQualityPerDay(item);
+            changeQualityPerDay(item, 1);
             
             if (item.sellIn < 5 && item.quality < MAXQUALITY){
 
-                addQualityPerDay(item);
+                changeQualityPerDay(item, 1);
             
                 if (item.sellIn < 1){
 
-                    item.quality = 0;
+                    item.quality = MINQUALITY;
 
                 }
             }
@@ -87,13 +86,13 @@ class GildedRose {
 
     public void updateRegular(Item item){
 
-        if (item.sellIn == 0 && item.quality >= 2){
+        if (item.sellIn == 0 && item.quality >= MINQUALITY + 2){
 
-            item.quality = item.quality - 2;
+            changeQualityPerDay(item, -2);
 
-        } else if (item.quality >= 1){
+        } else if (item.quality >= MINQUALITY + 1){
 
-            item.quality = item.quality - 1;
+            changeQualityPerDay(item, -1);
             removeSellInPerDay(item);
             
         } 

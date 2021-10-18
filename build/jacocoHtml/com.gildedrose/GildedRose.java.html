@@ -5,122 +5,121 @@ class GildedRose {
 
 
 <span class="fc" id="L7">    final int MAXQUALITY = 50;</span>
+<span class="fc" id="L8">    final int MINQUALITY = 0;</span>
 
 
-<span class="fc" id="L10">    public GildedRose(Item[] items) {</span>
-<span class="fc" id="L11">        this.items = items;</span>
-<span class="fc" id="L12">    }</span>
+<span class="fc" id="L11">    public GildedRose(Item[] items) {</span>
+<span class="fc" id="L12">        this.items = items;</span>
+<span class="fc" id="L13">    }</span>
     
-  
-    public void addQualityPerDay(Item item){
+    public void changeQualityPerDay(Item item, int n){
 
-<span class="fc" id="L17">        item.quality = item.quality + 1;</span>
-
-<span class="fc" id="L19">    }  </span>
+<span class="fc" id="L17">        item.quality = item.quality + n;</span>
+<span class="fc" id="L18">    } </span>
 
     public void removeSellInPerDay(Item item){
 
-<span class="fc" id="L23">        item.sellIn = item.sellIn - 1;</span>
+<span class="fc" id="L22">        item.sellIn = item.sellIn - 1;</span>
 
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L24">    }</span>
 
 
     public void updateBrie(Item item){
 
-<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (item.sellIn == 0){</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (item.sellIn == 0){</span>
 
-<span class="fc bfc" id="L32" title="All 2 branches covered.">            if(item.quality &lt;= 48){</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            if(item.quality &lt;= MAXQUALITY - 2){</span>
 
-<span class="fc" id="L34">                item.quality = item.quality + 2;</span>
+<span class="fc" id="L33">                changeQualityPerDay(item, 2);</span>
 
             } else {
 
-<span class="fc" id="L38">                item.quality = MAXQUALITY;</span>
+<span class="fc" id="L37">                item.quality = MAXQUALITY;</span>
 
             } 
         } 
         
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        else if (item.quality &lt;= 50){</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        else if (item.quality &lt;= MAXQUALITY){</span>
 
-<span class="fc bfc" id="L45" title="All 2 branches covered.">            if (item.quality &lt;= 49){</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            if (item.quality &lt;= MAXQUALITY - 1){</span>
 
-<span class="fc" id="L47">                addQualityPerDay(item);</span>
+<span class="fc" id="L46">                changeQualityPerDay(item, 1);</span>
 
             }
 
-<span class="fc" id="L51">            removeSellInPerDay(item);</span>
+<span class="fc" id="L50">            removeSellInPerDay(item);</span>
 
         } 
-<span class="fc" id="L54">    }</span>
+<span class="fc" id="L53">    }</span>
 
     
     public void updateConcert(Item item){
 
-<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (item.quality &lt; MAXQUALITY){</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (item.quality &lt; MAXQUALITY){</span>
 
-<span class="fc" id="L61">            addQualityPerDay(item);</span>
+<span class="fc" id="L60">            changeQualityPerDay(item, 1);</span>
 
         } 
 
-<span class="pc bpc" id="L65" title="1 of 4 branches missed.">        if (item.sellIn &lt; 10 &amp;&amp; item.quality &lt; MAXQUALITY){</span>
+<span class="pc bpc" id="L64" title="1 of 4 branches missed.">        if (item.sellIn &lt; 10 &amp;&amp; item.quality &lt; MAXQUALITY){</span>
 
-<span class="fc" id="L67">            addQualityPerDay(item);</span>
+<span class="fc" id="L66">            changeQualityPerDay(item, 1);</span>
             
-<span class="pc bpc" id="L69" title="1 of 4 branches missed.">            if (item.sellIn &lt; 5 &amp;&amp; item.quality &lt; MAXQUALITY){</span>
+<span class="pc bpc" id="L68" title="1 of 4 branches missed.">            if (item.sellIn &lt; 5 &amp;&amp; item.quality &lt; MAXQUALITY){</span>
 
-<span class="fc" id="L71">                addQualityPerDay(item);</span>
+<span class="fc" id="L70">                changeQualityPerDay(item, 1);</span>
             
-<span class="fc bfc" id="L73" title="All 2 branches covered.">                if (item.sellIn &lt; 1){</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">                if (item.sellIn &lt; 1){</span>
 
-<span class="fc" id="L75">                    item.quality = 0;</span>
+<span class="fc" id="L74">                    item.quality = MINQUALITY;</span>
 
                 }
             }
         } 
 
-<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (item.sellIn &gt; 0){</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        if (item.sellIn &gt; 0){</span>
 
-<span class="fc" id="L83">            removeSellInPerDay(item);</span>
+<span class="fc" id="L82">            removeSellInPerDay(item);</span>
 
         } 
-<span class="fc" id="L86">    }  </span>
+<span class="fc" id="L85">    }  </span>
 
     public void updateRegular(Item item){
 
-<span class="fc bfc" id="L90" title="All 4 branches covered.">        if (item.sellIn == 0 &amp;&amp; item.quality &gt;= 2){</span>
+<span class="fc bfc" id="L89" title="All 4 branches covered.">        if (item.sellIn == 0 &amp;&amp; item.quality &gt;= MINQUALITY + 2){</span>
 
-<span class="fc" id="L92">            item.quality = item.quality - 2;</span>
+<span class="fc" id="L91">            changeQualityPerDay(item, -2);</span>
 
-<span class="fc bfc" id="L94" title="All 2 branches covered.">        } else if (item.quality &gt;= 1){</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">        } else if (item.quality &gt;= MINQUALITY + 1){</span>
 
-<span class="fc" id="L96">            item.quality = item.quality - 1;</span>
-<span class="fc" id="L97">            removeSellInPerDay(item);</span>
+<span class="fc" id="L95">            changeQualityPerDay(item, -1);</span>
+<span class="fc" id="L96">            removeSellInPerDay(item);</span>
             
         } 
-<span class="fc" id="L100">    }</span>
+<span class="fc" id="L99">    }</span>
 
 
     public void updateQuality() {
 
-<span class="fc bfc" id="L105" title="All 2 branches covered.">        for (int i = 0; i &lt; items.length; i++) {</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        for (int i = 0; i &lt; items.length; i++) {</span>
             
-<span class="pc bpc" id="L107" title="1 of 4 branches missed.">            if (!items[i].name.equals(&quot;Sulfuras, Hand of Ragnaros&quot;) &amp;&amp; items[i].quality &lt;= MAXQUALITY){</span>
+<span class="pc bpc" id="L106" title="1 of 4 branches missed.">            if (!items[i].name.equals(&quot;Sulfuras, Hand of Ragnaros&quot;) &amp;&amp; items[i].quality &lt;= MAXQUALITY){</span>
 
-<span class="fc bfc" id="L109" title="All 2 branches covered.">                if (items[i].name.equals(&quot;Aged Brie&quot;)){</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">                if (items[i].name.equals(&quot;Aged Brie&quot;)){</span>
 
-<span class="fc" id="L111">                    updateBrie(items[i]);</span>
+<span class="fc" id="L110">                    updateBrie(items[i]);</span>
 
-<span class="fc bfc" id="L113" title="All 2 branches covered.">                } else if (items[i].name.equals(&quot;Backstage passes to a TAFKAL80ETC concert&quot;)){</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">                } else if (items[i].name.equals(&quot;Backstage passes to a TAFKAL80ETC concert&quot;)){</span>
 
-<span class="fc" id="L115">                    updateConcert(items[i]);</span>
+<span class="fc" id="L114">                    updateConcert(items[i]);</span>
 
                 } else {
 
-<span class="fc" id="L119">                    updateRegular(items[i]);</span>
+<span class="fc" id="L118">                    updateRegular(items[i]);</span>
                     
                 }               
             } 
         }
-<span class="fc" id="L124">    }</span>
+<span class="fc" id="L123">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
